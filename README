@@ -22,14 +22,16 @@ Installation
 =======
 
 1. Classic installation:
-    a) Add you Gemfile-file gem 'contact_us', :git => 'git://github.com/greendog/contact_us.git'
+    a) Add you Gemfile-file
+        gem 'contact_us', :require => 'contact_us' :git => 'git://github.com/greendog/spree_contact_us.git'
     b) bundle install
     c) rake contact_us:install
     d) rake db:migrate
     e) rails server
 
 2. Custom installation (not copied migration to main rails-app)
-    a) Add you Gemfile-file gem 'contact_us', :git => 'git://github.com/greendog/contact_us.git'
+    a) Add you Gemfile-file
+        gem 'contact_us', :require => 'contact_us' :git => 'git://github.com/greendog/spree_contact_us.git'
     b) bundle install
     c) rake contact_us:install:assets - copy assets to public dir
     d) rake contact_us:db:migrate   - run only extension migrations

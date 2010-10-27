@@ -34,3 +34,5 @@ Installation
     c) rake contact_us:install:assets - copy assets to public dir
     d) rake contact_us:db:migrate   - run only extension migrations
     e) rails server
+
+    Pull requests welcome!

@@ -5,36 +5,24 @@ Based on http://github.com/bryanmtl/spree_contact_us
 
 Requirements:
 
-1)formtastic
-
-  a) Add you Gemfile-file following line:
-    gem 'formtastic', :git => "git://github.com/justinfrench/formtastic.git"
-  b) run: bundle install
-
-
+1) formtastic
 2) dynamic_form
-  
-  a) Add you Gemfile-file following line:
-     gem 'dynamic_form', :git => 'git://github.com/rails/dynamic_form.git'
-  b) run: bundle install
 
 Installation
 =======
+  Add you Gemfile-file following lines:
+    gem 'formtastic', :git => "git://github.com/justinfrench/formtastic.git"
+    gem 'dynamic_form', :git => 'git://github.com/rails/dynamic_form.git'
+    gem 'contact_us', :require => 'contact_us', :git => 'git://github.com/greendog/spree_contact_us.git'
+
+  Run: bundle install
 
 1. Classic installation:
-    a) Add you Gemfile-file
-        gem 'contact_us', :require => 'contact_us' :git => 'git://github.com/greendog/spree_contact_us.git'
-    b) bundle install
-    c) rake contact_us:install
-    d) rake db:migrate
-    e) rails server
+    a) rake contact_us:install
+    b) rake db:migrate
 
 2. Custom installation (not copied migration to main rails-app)
-    a) Add you Gemfile-file
-        gem 'contact_us', :require => 'contact_us' :git => 'git://github.com/greendog/spree_contact_us.git'
-    b) bundle install
-    c) rake contact_us:install:assets - copy assets to public dir
-    d) rake contact_us:db:migrate   - run only extension migrations
-    e) rails server
+    a) rake contact_us:install:assets - copy assets to public dir
+    b) rake contact_us:db:migrate   - run only extension migrations
 
-    Pull requests welcome!
+ Pull requests welcome

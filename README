@@ -25,4 +25,6 @@ Installation
     a) rake contact_us:install:assets - copy assets to public dir
     b) rake contact_us:db:migrate   - run only extension migrations
 
+ Edit app/models/contact_us_configuration.rb   
+
  Pull requests welcome

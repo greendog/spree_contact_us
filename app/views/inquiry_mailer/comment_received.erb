@@ -1,0 +1,7 @@
+<p><%= t(:header) %></p>
+
+<%= t(:from) %>: <%= @comment.user.user_profile.fullname if @comment.user.user_profile %> (<%= @comment.user.email %>)
+
+========================
+<%= t(:message) %>:<br/>
+<%= @comment.message %>

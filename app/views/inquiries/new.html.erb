@@ -1,0 +1,25 @@
+<% content_for :head do %>
+    <%= formtastic_stylesheet_link_tag %>
+<% end %>
+<% content_for :page_title do %>
+    <%= @site_page.page_title rescue '' %>
+<% end %>
+
+<div id="contact-wrapper">
+    <%= error_messages_for :inquiry %>
+    <div class="contact_form">
+        <% semantic_form_for @inquiry do |form| %>
+            <% form.inputs :name =>  t(:contact_form) do %>
+                <%= form.input :name, :required => true, :label => t(:your_name) %>
+                <%= form.input :email, :label => t(:your_email), :hint => t(:type_real_mail) %>
+                <%= form.input :inquiry_type, :label => t(:type_inquiry), :as => :select, :collection => translate_types, :required => false %>
+                <%= form.input :order_no, :label => t(:number_order), :required => false %>
+                <%= form.input :message, :as => :text, :label =>  t(:message) %>
+            <% end %>
+            <% form.buttons do %>
+                <%= form.commit_button :label => t(:send) %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+

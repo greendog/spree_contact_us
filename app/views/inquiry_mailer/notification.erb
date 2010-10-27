@@ -1,0 +1,7 @@
+<p><%= t(:header) %></p>
+<p><%= t(:from) %>: <%= @inquiry.name %> (<%= @inquiry.email %>)</p>
+<p><%= t(:type_inquiry) %>: <%= @inquiry.inquiry_type %></p>
+<%= "Order No: #{@inquiry.order_no}" unless @inquiry.order_no.blank? %>
+<br/>
+<%= t(:message) %>:<br/>
+<p><%= @inquiry.message %></p>

@@ -27,7 +27,7 @@ namespace :contact_us do
 
     desc "Loads a specified fixture using rake db:load_file[filename.rb]"
     task :seed do
-      Rake::Task["static_content:db:load_dir"].invoke("default")
+      Rake::Task["contact_us:db:load_dir"].invoke("default")
     end
 
     desc "Loads a specified fixture using rake db:load_file[filename.rb]"

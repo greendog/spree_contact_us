@@ -1,4 +1,6 @@
 require 'spree_core'
+require 'net/http'
+require 'recaptcha/rails'
 require 'contact_us_hooks'
 
 module ContactUs

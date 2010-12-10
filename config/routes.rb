@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  match '/contact' => 'inquiries#index', :as => :contact
+  match '/contact-us' => 'inquiries#index', :as => :contact
 
   resources :inquiries
 

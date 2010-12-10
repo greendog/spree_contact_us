@@ -1,11 +1,11 @@
 <% content_for :head do %>
     <%= formtastic_stylesheet_link_tag %>
 <% end %>
+
 <% content_for :page_title do %>
     <%= @site_page.page_title rescue '' %>
 <% end %>
 
-<div id="contact-wrapper">
     <%= error_messages_for :inquiry %>
     <div class="contact_form">
         <% semantic_form_for @inquiry do |form| %>
@@ -17,9 +17,19 @@
                 <%= form.input :message, :as => :text, :label =>  t(:message) %>
             <% end %>
             <% form.buttons do %>
+						<% if Spree::Captcha::Config[:use_captcha] %>
+    <%= recaptcha_tags :public_key => Spree::Captcha::Config[:public_key], :display => {:theme => Spree::Captcha::Config[:theme]} %>
+	<div id="recaptcha_container">
+    <label for="recaptcha_response_field">Enter the two words below:</label>
+    <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" class="text" />
+    <div id="recaptcha_image"></div>
+    <p>Choose captcha format: <a href="javascript:Recaptcha.switch_type('image');">Image</a> or <a href="javascript:Recaptcha.switch_type('audio');">Audio</a> </p>
+    <input type="button" id="recaptcha_reload_btn" value="Get new words" onclick="Recaptcha.reload();" />
+	<script type="text/javascript" src="http://api.recaptcha.net/challenge?k=<%=Spree::Captcha::Config[:public_key]%>">
+</script>
+</div>
+  <% end %>
                 <%= form.commit_button :label => t(:send) %>
             <% end %>
         <% end %>
     </div>
-</div>
-

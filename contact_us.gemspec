@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
   s.add_dependency('spree_core', '>= 0.30.0.beta2')
   s.add_dependency('dynamic_form')
   s.add_dependency('formtastic')
+	s.add_dependency('recaptcha')
 end

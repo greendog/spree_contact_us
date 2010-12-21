@@ -24,3 +24,4 @@ en:
   send: "Send message"
   from: "From"
   header: "If this message is not for you, please ignore and delete it. To this message do not reply."
+  recaptcha_error_mes: "There was an error with the ReCAPTCHA, please try again."

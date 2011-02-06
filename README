@@ -27,6 +27,8 @@ gem 'recaptcha', :require => 'recaptcha/rails', :git => 'git://github.com/rfc282
     a) rake contact_us:install:assets - copy assets to public dir
     b) rake contact_us:db:migrate   - run only extension migrations
 
- Edit app/models/contact_us_configuration.rb   
+ Edit app/models/captcha_configuration.rb
+
+ Set mail method in admin area (/admin/mail_methods). Otherwise will not work!
 
  Pull requests welcome

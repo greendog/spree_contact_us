@@ -1,13 +1,13 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'contact_us'
-  s.version     = '1.0.0'
-  s.summary     = 'Add gem summary here'
+  s.version     = '2.0.0'
+  s.summary     = 'Contact form for Spree ecommerce engine'
   #s.description = 'Add (optional) gem description here'
   s.required_ruby_version = '>= 1.8.7'
 
-  s.author            = 'greendog'
-  # s.email             = 'david@loudthinking.com'
+  s.author            = 'Alexander Negoda'
+  s.email             = 'alexander.negoda@gmail.com'
   # s.homepage          = 'http://www.rubyonrails.org'
   # s.rubyforge_project = 'actionmailer'
 

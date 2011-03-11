@@ -12,10 +12,10 @@ Requirements:
 Installation
 =======
 Add-to Gemfile following lines:
-gem 'formtastic', :git => "git://github.com/justinfrench/formtastic.git"
-gem 'dynamic_form', :git => 'git://github.com/rails/dynamic_form.git'
+gem 'formtastic'
+gem 'dynamic_form'
 gem 'contact_us', :require => 'contact_us', :git => 'git://github.com/greendog/spree_contact_us.git'
-gem 'recaptcha', :require => 'recaptcha/rails', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3' 
+gem 'recaptcha'
 
   Run: bundle install
 

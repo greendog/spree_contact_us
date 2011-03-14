@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = true
 
-  s.add_dependency('spree_core', '>= 0.30.0.beta2')
+  s.add_dependency('spree_core')
   s.add_dependency('dynamic_form')
   s.add_dependency('formtastic')
   s.add_dependency('recaptcha')

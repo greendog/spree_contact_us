@@ -1,31 +1,21 @@
-ContactUs
+SpreeContactUs
 =========
-
-Based on http://github.com/bryanmtl/spree_contact_us
 
 Requirements:
 
 1) formtastic
-2) dynamic_form
-3) recaptcha
+2) recaptcha
+3) rails >= 3.1.0
 
 Installation
 =======
 Add-to Gemfile following lines:
 gem 'formtastic'
-gem 'dynamic_form'
-gem 'contact_us', :require => 'contact_us', :git => 'git://github.com/greendog/spree_contact_us.git'
+gem 'spree_contact_us', :require => 'contact_us', :git => 'git://github.com/greendog/spree_contact_us.git'
 gem 'recaptcha'
 
-  Run: bundle install
+Run: bundle install
 
-1. Classic installation:
-    a) rake contact_us:install
-    b) rake db:migrate
-
-2. Custom installation (not copied migration to main rails-app)
-    a) rake contact_us:install:assets - copy assets to public dir
-    b) rake contact_us:db:migrate   - run only extension migrations
 
  Edit app/models/captcha_configuration.rb
 

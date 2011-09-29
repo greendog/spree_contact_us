@@ -11,7 +11,7 @@ Installation
 =======
 Add-to Gemfile following lines:
 gem 'formtastic'
-gem 'spree_contact_us', :require => 'contact_us', :git => 'git://github.com/greendog/spree_contact_us.git'
+gem 'spree_contact_us', :git => 'git://github.com/greendog/spree_contact_us.git'
 gem 'recaptcha'
 
 Run: bundle install

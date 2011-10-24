@@ -1,5 +1,12 @@
 ---
 ru:
+  activerecord:
+    attributes:
+      inquiry:
+        name: "Имя"
+        email: "Email-адрес"
+        inquiry_type: "Причина"
+        message: "Текст письма"
   inquiries: "Сообщения"
   contact_us: "Контакты"
   contact_form: "Контактная форма"

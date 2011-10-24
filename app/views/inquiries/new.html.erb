@@ -1,27 +1,31 @@
-<% content_for :head do %>
-    <%= formtastic_stylesheet_link_tag %>
-<% end %>
+<%= render 'shared/error_messages', :target => @inquiry %>
 
-<% content_for :page_title do %>
-    <%= @site_page.page_title rescue '' %>
-<% end %>
-
-<%= error_messages_for :inquiry %>
 <div class="contact_form">
-    <% semantic_form_for @inquiry do |form| %>
-        <% form.inputs :name => t(:contact_form) do %>
-            <%= form.input :name, :required => true, :label => t(:your_name) %>
-            <%= form.input :email, :label => t(:your_email), :hint => t(:type_real_mail) %>
-            <%= form.input :inquiry_type, :label => t(:type_inquiry), :as => :select, :collection => translate_types, :required => false %>
-            <%= form.input :order_no, :label => t(:number_order), :required => false %>
-            <%= form.input :message, :as => :text, :label => t(:message) %>
+    <%= form_for(@inquiry) do |f| %>
+        <%= f.field_container :name do %>
+            <%= f.label :name, t(:your_name) %><span class="required">*</span>
+            <%= f.text_field :name %>
         <% end %>
-        <% form.buttons do %>
-            <% if Spree::Captcha::Config[:use_captcha] %>
-                <%= recaptcha_tags :public_key => Spree::Captcha::Config[:public_key], :ajax => true,
-                                   :display => {:theme => Spree::Captcha::Config[:theme]} %>
-            <% end %>
-            <%= form.commit_button :label => t(:send), :button_html => { :class => "styled-button long" } %>
+        <%= f.field_container :email do %>
+            <%= f.label :email, t(:your_email) %><span class="required">*</span>
+            <%= f.text_field :email %>
         <% end %>
+        <%= f.field_container :inquiry_type do %>
+            <%= f.label :inquiry_type, t(:type_inquiry) %>
+            <%= f.select :inquiry_type, options_for_select(translate_types), :include_blank => t(:please_select) %>
+        <% end %>
+        <%= f.field_container :order_no do %>
+            <%= f.label :name, t(:number_order) %>
+            <%= f.text_field :order_no %>
+        <% end %>
+        <%= f.field_container :message do %>
+            <%= f.label :message, t(:message) %> <span class="required">*</span>
+            <%= f.text_area :message, {:cols => 60, :rows => 4, :class => 'fullwidth'} %>
+        <% end %>
+
+        <% if Spree::Captcha::Config[:use_captcha] %>
+            <%= show_simple_captcha %>
+        <% end %>
+        <%= f.submit t(:send) %>
     <% end %>
 </div>

@@ -1,23 +1,29 @@
 class InquiriesController < Spree::BaseController
   helper 'spree/base'
-  resource_controller
+  include SimpleCaptcha::ControllerHelpers
+
+  def new
+    @inquiry = Inquiry.new
+  end
 
   def create
     @inquiry = Inquiry.new(params[:inquiry])
 
     respond_to do |format|
-      if verify_recaptcha(:private_key => Spree::Captcha::Config[:private_key])
+      if simple_captcha_valid?
         if @inquiry.valid? && @inquiry.save
-          flash[:notice] = t(:on_send_message)
-          format.html { redirect_to(@inquiry) }
-          format.xml { render :xml => @inquiry, :status => :created, :location => @inquiry }
+          format.html do
+            flash[:notice] = t(:on_send_message)
+            redirect_to(@inquiry)
+          end
         else
-          render :action => "new"
+          format.html { render :action => "new" }
         end
       else
-        flash[:notice] = t(:recaptcha_error_mes)
-        format.html { render :action => "new" }
-        format.xml { render :xml => @inquiry.errors, :status => :unprocessable_entity }
+        format.html do
+          flash[:notice] = t(:recaptcha_error_mes)
+          render :action => "new"
+        end
       end
     end
   end

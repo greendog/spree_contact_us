@@ -4,7 +4,7 @@ SpreeContactUs
 Requirements:
 
 1) formtastic
-2) recaptcha
+2) simple_captcha
 3) rails >= 3.1.0
 
 Installation
@@ -12,7 +12,7 @@ Installation
 Add-to Gemfile following lines:
 gem 'formtastic'
 gem 'spree_contact_us', :git => 'git://github.com/greendog/spree_contact_us.git'
-gem 'recaptcha'
+gem 'simple_captcha', :git => 'git://github.com/greendog/simple-captcha.git'
 
 Run: bundle install
 

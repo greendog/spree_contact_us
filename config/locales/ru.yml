@@ -12,7 +12,7 @@ ru:
   contact_form: "Контактная форма"
   your_name: "Ваше имя"
   your_email: "Ваш Email"
-  type_inquiry: "Причина"
+  type_inquiry: "Тема"
   number_order: "Номер заказа (если есть)"
   message: "Сообщение"
   send_it: "Отправить!"

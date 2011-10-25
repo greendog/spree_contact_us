@@ -8,7 +8,7 @@ class Inquiry < ActiveRecord::Base
 
 
   def deliver_notification_email
-    InquiryMailer.deliver_notification(self)
+    InquiryMailer.notification(self).deliver
     # For delayed_job
     # InquiryMailer.send_later(:deliver_notification, self)
   end

@@ -1,4 +1,11 @@
 en:
+  activerecord:
+    attributes:
+      inquiry:
+        name: "Name"
+        email: "Email"
+        inquiry_type: "Theme"
+        message: "Message"
   inquiries: "Inquiries"
   contact_us: "Contacts"
   contact_form: "Contact Form"
@@ -25,3 +32,4 @@ en:
   from: "From"
   header: "If this message is not for you, please ignore and delete it. To this message do not reply."
   recaptcha_error_mes: "There was an error with the ReCAPTCHA, please try again."
+  order: "Order"

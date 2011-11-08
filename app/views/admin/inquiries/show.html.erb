@@ -1,20 +1,26 @@
 <p>
-    <%= t(:name) %>: <%= @inquiry.name %>
+  <strong><%= t(:name) %>:</strong> <%= @inquiry.name %>
 </p>
 <p>
-    <%= t(:email) %>: <%= @inquiry.email %>
+  <strong><%= t(:email) %>:</strong> <%= mail_to "#{@inquiry.name} <#{@inquiry.email}>", @inquiry.email %>
+</p>
+<% unless @inquiry.phone_number.blank? %>
+<p>
+  <strong><%= t(:phone_number) %>:</strong> <%= @inquiry.phone_number %>
+</p>
+<% end %>
+<p>
+  <strong><%= t(:type) %>:</strong> <%= @inquiry.inquiry_type %>
+</p>
+<% unless @inquiry.order_no.blank? %>
+<p>
+  <strong><%= t(:order) %>:</strong> <%= @inquiry.order_no %>
+</p>
+<% end %>
+<p>
+  <strong><%= t(:message) %>:</strong> <%= h @inquiry.message %>
 </p>
 <p>
-    <%= t(:type) %>: <%= @inquiry.inquiry_type %>
+  <%= link_to t(:back), collection_url %> | 
+  <%= link_to t(:delete), object_url, :confirm => t(:are_you_sure_delete), :method => :delete %>
 </p>
-<p>
-    <%= "#{t(:order)} #{@inquiry.order_no}" unless @inquiry.order_no.blank? %>
-</p>
-<p>
-    <%= t(:message) %>: <%= h @inquiry.message %>
-</p>
-<p>
-    <%= link_to t(:back), collection_url %>
-    | <%= button_to t("delete"), object_url(@inquiry), :confirm => t("confirm_delete"), :method => :delete %>
-</p>
-</tr>

@@ -1,0 +1,14 @@
+<%= render :partial => 'admin/shared/configuration_menu' %>
+
+<h1><%= t(:inquiries) %></h1>
+
+<table>
+  <tr>
+    <th scope="row"><%= t(:use_captcha) %>:</th>
+    <td><%= Spree::Captcha::Config[:use_captcha] ? t('yes') : t('no') %></td>
+  </tr>
+</table>
+
+<p>
+  <%= link_to_with_icon('edit', t("edit"), edit_admin_inquiry_settings_path) %>
+</p>

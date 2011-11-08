@@ -1,0 +1,15 @@
+<%= render :partial => 'admin/shared/configuration_menu' %>
+
+<h1><%= t(:recaptcha) %></h1>
+
+<%= form_tag(admin_inquiry_settings_path, :method => :put) do -%>
+  <p>
+    <label><%= t(:use_captcha) %>:</label>
+    <%= check_box_tag('captcha[use_captcha]', "1", Spree::Captcha::Config[:use_captcha]) %>
+  </p>
+  <p class="form-buttons">
+    <%= button t('update') %>
+    <%= t("or") %> <%= link_to t("cancel"), admin_inquiry_settings_url %>
+  </p>
+<% end -%>
+

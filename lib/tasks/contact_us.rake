@@ -1,5 +1,19 @@
+require 'active_record'
+require 'custom_fixtures'
 require 'fileutils'
 include FileUtils::Verbose
+
+namespace :db do
+  desc "Standart migrations"
+  task :migrate do
+    Rake::Task["contact_us:db:migrate"].invoke
+  end
+
+  desc "Loads a specified fixture using rake db:load_file[filename.rb]"
+  task :seed do
+    Rake::Task["contact_us:db:load_dir"].invoke("default")
+  end
+end
 
 namespace :contact_us do
   namespace :db do

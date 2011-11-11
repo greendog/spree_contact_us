@@ -32,7 +32,7 @@ class InquiriesController < Spree::BaseController
   protected
   
   def inquiry_saved
-    flash[:notice] = t(:inquiry_sent_succesfully)
+    flash[:notice] = t(:flash_inquiry_sent_succesfully)
     redirect_to(@inquiry)
   end
   

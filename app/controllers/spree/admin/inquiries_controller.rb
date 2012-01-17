@@ -1,4 +1,8 @@
-class Admin::InquiriesController < Admin::ResourceController
+class Spree::Admin::InquiriesController < Spree::Admin::ResourceController
+
+  def model_class
+      "Inquiry".constantize
+  end
 
   def collection
     return @collection if @collection.present?
@@ -6,7 +10,7 @@ class Admin::InquiriesController < Admin::ResourceController
       params[:search] ||= {}
       params[:search][:meta_sort] ||= "name.asc"
       @search = super.metasearch(params[:search])
-      @collection = @search.relation.page(params[:page]).per(Spree::Config[:per_page])
+      @collection = @search.relation.page(params[:page]).per(10)
     else
       @collection = Inquiry.find(:all, :limit => (params[:limit] || 100))
     end

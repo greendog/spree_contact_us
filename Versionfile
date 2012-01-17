@@ -7,5 +7,6 @@
 # "0.60.x" => { :branch => "0-60-stable" }
 # "0.40.x" => { :tag => "v1.0.0", :version => "1.0.0" }
 
-"0.70.RC1" => { :branch => "master"}
+"0.70.RC1" => { :branch => "0-70-stable"}
+"1.0.0.rc2" => { :branch => "master"}
 

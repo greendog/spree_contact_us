@@ -1,6 +1,6 @@
-class InquiriesController < Spree::BaseController
-  helper 'spree/base'
-  include SimpleCaptcha::ControllerHelpers
+class Spree::InquiriesController < Spree::BaseController
+  #include SimpleCaptcha::ControllerHelpers
+  helper 'spree/admin/base'
 
   def new
     @inquiry = Inquiry.new

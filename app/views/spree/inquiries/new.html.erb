@@ -1,4 +1,4 @@
-<%= render 'shared/error_messages', :target => @inquiry %>
+<%= render 'spree/shared/error_messages', :target => @inquiry %>
 
 <div class="contact_form">
   <%= form_for(@inquiry) do |f| %>
@@ -26,7 +26,7 @@
       <%= f.label :message, t(:inquiry_message) %> <span class="required">*</span>
       <%= f.text_area :message, {:cols => 60, :rows => 4, :class => 'fullwidth'} %>
     <% end %>    
-    <%= show_simple_captcha if Spree::Captcha::Config[:use_captcha] %>
+    <%= show_simple_captcha if Spree::Config[:use_captcha] %>
     <%= f.submit t(:send_inquiry) %>
   <% end %>
 </div>

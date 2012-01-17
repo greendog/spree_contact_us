@@ -19,6 +19,7 @@ module SpreeContactUs
       end
 
       Spree::Ability.register_ability(ContactUsAbilityDecorator)
+
     end
 
     config.to_prepare &method(:activate).to_proc

@@ -7,5 +7,4 @@ Spree::Core::Engine.routes.append do
   end
 
   match '/contact' => 'inquiries#new', :as => :contact
-
 end

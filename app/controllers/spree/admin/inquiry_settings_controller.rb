@@ -1,4 +1,4 @@
-class Admin::InquirySettingsController < Admin::BaseController
+class Spree::Admin::InquirySettingsController < Spree::Admin::BaseController
   def update
     # workaround for unset checkbox behaviour
     params[:captcha] ||= {}

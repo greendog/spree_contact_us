@@ -9,6 +9,10 @@ module SpreeContactUs
       g.test_framework :rspec
     end
 
+    initializer "spree.contact_us.preferences", :after => "spree.environment" do |app|
+      SpreeContactUs::Config = Spree::ContactUs::Configuration.new
+    end
+
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), "../../app/**/*_decorator*.rb")) do |c|
         Rails.application.config.cache_classes ? require(c) : load(c)
@@ -19,7 +23,6 @@ module SpreeContactUs
       end
 
       Spree::Ability.register_ability(ContactUsAbilityDecorator)
-
     end
 
     config.to_prepare &method(:activate).to_proc

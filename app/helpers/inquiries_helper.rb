@@ -1,5 +1,5 @@
 module InquiriesHelper
   def translate_types
-    INQUIRY_TYPES.collect { |i| t(i) }
+    SpreeContactUs::Config[:inquiry_types].collect { |i| t(i) }
   end
 end

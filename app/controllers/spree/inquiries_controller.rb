@@ -8,9 +8,7 @@ class Spree::InquiriesController < Spree::BaseController
   def create
     @inquiry = Inquiry.new(params[:inquiry])
 
-    skip_captcha || verify_recaptcha(:model => @inquiry, :message => t(:recaptcha_error_mes), :private_key => recaptcha_public_key)
-
-    if @inquiry.errors.empty? && @inquiry.save
+    if validate_captcha && @inquiry.save
       redirect_to @inquiry, :notice => t(:flash_inquiry_sent_succesfully)
     else
       render :action => 'new'
@@ -23,12 +21,16 @@ class Spree::InquiriesController < Spree::BaseController
   
   protected
 
-  def recaptcha_public_key
+  def validate_captcha
+    skip_captcha || !defined?(Recaptcha) || verify_recaptcha(:model => @inquiry, :message => t(:recaptcha_error_mes), :private_key => recaptcha_key)
+  end
+
+  def recaptcha_key
     SpreeContactUs::Config[:recaptcha_public_key]
   end
 
   def skip_captcha
-    SpreeContactUs::Config[:use_captcha] == false || !defined?(Recaptcha)
+    SpreeContactUs::Config[:use_captcha] == false
   end
   
   def accurate_title

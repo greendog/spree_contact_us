@@ -1,5 +1,4 @@
 class Spree::InquiriesController < Spree::BaseController
-  #include SimpleCaptcha::ControllerHelpers
   helper 'spree/admin/base'
 
   def new
@@ -9,19 +8,12 @@ class Spree::InquiriesController < Spree::BaseController
   def create
     @inquiry = Inquiry.new(params[:inquiry])
 
-    respond_to do |format|
-      if simple_captcha_valid? || Spree::Captcha::Config[:use_captcha] == false
-        if @inquiry.valid? && @inquiry.save
-          format.html { inquiry_saved }
-        else
-          format.html { render :action => "new" }
-        end
-      else
-        format.html do
-          flash[:notice] = t(:recaptcha_error_mes)
-          render :action => "new"
-        end
-      end
+    skip_captcha || verify_recaptcha(:model => @inquiry, :message => t(:recaptcha_error_mes), :private_key => recaptcha_public_key)
+
+    if @inquiry.errors.empty? && @inquiry.save
+      redirect_to @inquiry, :notice => t(:flash_inquiry_sent_succesfully)
+    else
+      render :action => 'new'
     end
   end
 
@@ -30,10 +22,13 @@ class Spree::InquiriesController < Spree::BaseController
   end
   
   protected
-  
-  def inquiry_saved
-    flash[:notice] = t(:flash_inquiry_sent_succesfully)
-    redirect_to(@inquiry)
+
+  def recaptcha_public_key
+    SpreeContactUs::Config[:recaptcha_public_key]
+  end
+
+  def skip_captcha
+    SpreeContactUs::Config[:use_captcha] == false || !defined?(Recaptcha)
   end
   
   def accurate_title

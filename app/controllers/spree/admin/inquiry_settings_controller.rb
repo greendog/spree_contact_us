@@ -3,7 +3,7 @@ class Spree::Admin::InquirySettingsController < Spree::Admin::BaseController
     # workaround for unset checkbox behaviour
     params[:captcha] ||= {}
     params[:captcha][:use_captcha] = !params[:captcha][:use_captcha].blank?
-    Spree::Captcha::Config.set(params[:captcha])
+    SpreeContactUs::Config.set(params[:captcha])
 
     respond_to do |format|
       format.html {

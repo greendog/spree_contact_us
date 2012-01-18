@@ -3,7 +3,7 @@ module Spree
     class Configuration < Spree::Preferences::Configuration
       preference :use_captcha, :boolean, :default => true
       preference :recaptcha_public_key, :string
-      preference :recaptcha_theme, :string
+      preference :recaptcha_theme, :string, :default => 'red'
       preference :inquiry_types, :array, :default => [:common, :orders_and_products, :suggestions, :other]
     end
   end

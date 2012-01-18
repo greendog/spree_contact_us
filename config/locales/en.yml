@@ -32,8 +32,11 @@ en:
   send: "Send message"
   from: "From"
   header: "If this message is not for you, please ignore and delete it. To this message do not reply."
-  recaptcha_error_mes: "There was an error with the ReCAPTCHA, please try again."
+  recaptcha_error_mes: "There was an error with the reCAPTCHA, please try again."
   order: "Order"
-  recaptcha: ReCAPTCHA
-  use_captcha: Enable ReCAPTCHA
+  recaptcha: reCAPTCHA
+  use_captcha: Enable reCAPTCHA
   inquiry_settings: Inquiry settings
+  recaptcha_description: is a free widget that will protect your contact form from spam and malicious entries.
+  view_themes: View Themes
+  get_api_key: Get API Key

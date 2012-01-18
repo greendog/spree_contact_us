@@ -1,4 +1,4 @@
-Spree::Core::Engine.routes.append do
+Spree::Core::Engine.routes.prepend do
   resources :inquiries
 
   namespace :admin do

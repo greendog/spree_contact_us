@@ -17,7 +17,7 @@
   </tr>
   <tr>
     <th scope="row"><%= t(:inquiry_types) %>:</th>
-    <td><%= SpreeContactUs::Config[:inquiry_types].collect{ |type| t(type) }.join(', ') %></td>
+    <td><%= inquiry_types_translated.join(', ') %></td>
   </tr>
 </table>
 

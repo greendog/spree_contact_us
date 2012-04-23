@@ -2,7 +2,7 @@ module Spree
   module Admin
     class InquiriesController < Spree::Admin::ResourceController
       def model_class
-        "Inquiry".constantize
+        "Spree::Inquiry".constantize
       end
 
       def collection

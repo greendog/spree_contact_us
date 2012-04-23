@@ -22,7 +22,7 @@ module SpreeContactUs
         Rails.application.config.cache_classes ? require(c) : load(c)
       end
 
-      Spree::Ability.register_ability(ContactUsAbilityDecorator)
+      Spree::Ability.register_ability(::ContactUsAbility)
     end
 
     config.to_prepare &method(:activate).to_proc

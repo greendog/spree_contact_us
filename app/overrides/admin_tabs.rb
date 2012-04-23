@@ -2,7 +2,7 @@ Deface::Override.new(:virtual_path => "spree/layouts/admin",
                      :name => "spree_contact_us_inquiries_tab",
                      :original => "b14b1b16ac8937f99956ffef65de6f9c579ed1aa",
                      :insert_bottom => "[data-hook='admin_tabs']",
-                     :text => '<li class=""><a href="/admin/inquiries"><%= t(:inquiries) %></a></li>',
+                     :text => "<%= tab(:inquiries, :url => spree.admin_inquiries_path) %>",
                      :disabled => false)
 
 Deface::Override.new(:virtual_path => "spree/admin/configurations/index",

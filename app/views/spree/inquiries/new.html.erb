@@ -1,5 +1,4 @@
 <%= render 'spree/shared/error_messages', :target => @inquiry %>
-
 <div class="contact_form">
   <%= form_for(@inquiry) do |f| %>
     <%= f.field_container :name do %>
@@ -13,10 +12,10 @@
     <%= f.field_container :phone_number do %>
       <%= f.label :phone_number, t(:contact_phone_number) %>
       <%= f.text_field :phone_number %>
-    <% end %>    
+    <% end %>
     <%= f.field_container :inquiry_type do %>
       <%= f.label :inquiry_type, t(:inquiry_type) %>
-      <%= f.select :inquiry_type, options_for_select(inquiry_types_translated), :include_blank => t(:please_select) %>
+      <%= f.select :inquiry_type, options_for_select(inquiry_types_translated) %>
     <% end %>
     <%= f.field_container :order_no do %>
       <%= f.label :name, t(:inquiry_order_no) %>
@@ -25,8 +24,15 @@
     <%= f.field_container :message do %>
       <%= f.label :message, t(:inquiry_message) %> <span class="required">*</span>
       <%= f.text_area :message, {:cols => 60, :rows => 4, :class => 'fullwidth'} %>
-    <% end %>    
-    <%= show_simple_captcha if Spree::Config[:use_captcha] %>
+    <% end %>
+    <% if Spree::ContactUsConfiguration[:use_captcha] %>
+      <%= recaptcha_tags(
+            :public_key => Spree::ContactUsConfiguration[:recaptcha_public_key],
+            :display    => {:theme => Spree::ContactUsConfiguration[:recaptcha_theme]}
+          )
+      %>
+    <% end %>
+    <br/>
     <%= f.submit t(:send_inquiry) %>
   <% end %>
 </div>

@@ -9,8 +9,8 @@ module SpreeContactUs
       g.test_framework :rspec
     end
 
-    initializer "spree.contact_us.preferences", :after => "spree.environment" do |app|
-      SpreeContactUs::Config = Spree::ContactUs::Configuration.new
+    initializer "spree.spree_contact_us.preferences", :after => "spree.environment" do |app|
+      Spree::ContactUsConfiguration = Spree::SpreeContactUsConfiguration.new
     end
 
     def self.activate

@@ -4,7 +4,7 @@
 
 <%= t(:from) %>: <%= @inquiry.name %> (<%= @inquiry.email %>)
 <% unless @inquiry.phone_number.blank? %>
-  <%= t(:contact_phone_number) %>: <%= @inquiry.phone_number %></p>
+  <%= t(:contact_phone_number) %>: <%= @inquiry.phone_number %>
 <% end %>
 <%= t(:inquiry_type) %>: <%= @inquiry.inquiry_type %>
 <% unless @inquiry.order_no.blank? %>

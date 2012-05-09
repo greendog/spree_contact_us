@@ -9,13 +9,14 @@ Requirements:
 Installation
 =======
 Add-to Gemfile following lines:
-gem 'spree_contact_us', :git => 'git://github.com/greendog/spree_contact_us.git'
-gem 'simple_captcha', :git => 'git://github.com/greendog/simple-captcha.git'
+gem 'spree_contact_us', :git => 'git://github.com/drefined/spree_contact_us.git'
+gem "recaptcha", :require => "recaptcha/rails"
 
 Run: bundle install
+Run: bundle exec rails g spree_contact_us:install
+Run: bundle exec rake db:migrate
 
-
- Edit app/models/captcha_configuration.rb
+ Edit lib/spree/spree_contact_us_configuration.rb
 
  Set mail method in admin area (/admin/mail_methods). Otherwise will not work!
 

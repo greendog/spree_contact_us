@@ -9,8 +9,8 @@ module SpreeContactUs
       g.test_framework :rspec
     end
 
-    initializer "spree.contact_us.preferences", :after => "spree.environment" do |app|
-      SpreeContactUs::Config = Spree::ContactUs::Configuration.new
+    initializer "spree.spree_contact_us.preferences", :after => "spree.environment" do |app|
+      Spree::ContactUsConfiguration = Spree::SpreeContactUsConfiguration.new
     end
 
     def self.activate
@@ -18,11 +18,7 @@ module SpreeContactUs
         Rails.application.config.cache_classes ? require(c) : load(c)
       end
 
-      Dir.glob(File.join(File.dirname(__FILE__), "../../app/overrides/*.rb")) do |c|
-        Rails.application.config.cache_classes ? require(c) : load(c)
-      end
-
-      Spree::Ability.register_ability(ContactUsAbilityDecorator)
+      Spree::Ability.register_ability(::ContactUsAbility)
     end
 
     config.to_prepare &method(:activate).to_proc

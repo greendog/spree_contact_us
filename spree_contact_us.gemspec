@@ -1,8 +1,5 @@
 # encoding: UTF-8
 
-LANG="en_US.UTF-8"
-LC_ALL="en_US.UTF-8"
-
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_contact_us'
@@ -19,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '>= 1.0.0.rc2'
+  s.add_dependency 'spree_core', '>= 1.0.0'
   s.add_development_dependency 'rspec-rails'
   s.add_dependency 'recaptcha'
 end

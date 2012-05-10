@@ -1,4 +1,4 @@
-module SpreeContactU
+module SpreeContactUs
   module Generators
     class InstallGenerator < Rails::Generators::Base
 

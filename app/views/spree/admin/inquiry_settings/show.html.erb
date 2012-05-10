@@ -1,0 +1,27 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<h1><%= t(:inquiry_settings) %></h1>
+<table>
+  <tr>
+    <th scope="row"><%= t(:use_captcha) %>:</th>
+    <td><%= Spree::ContactUsConfiguration[:use_captcha] ? t('yes') : t('no') %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= t(:recaptcha_public_key) %>:</th>
+    <td><%= Spree::ContactUsConfiguration[:recaptcha_public_key] %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= t(:recaptcha_private_key) %>:</th>
+    <td><%= Spree::ContactUsConfiguration[:recaptcha_private_key] %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= t(:recaptcha_theme) %>:</th>
+    <td><%= Spree::ContactUsConfiguration[:recaptcha_theme] %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= t(:inquiry_types) %>:</th>
+    <td><%= inquiry_types_translated.join(', ') %></td>
+  </tr>
+</table>
+<p>
+  <%= link_to_with_icon('edit', t("edit"), edit_admin_inquiry_settings_path) %>
+</p>

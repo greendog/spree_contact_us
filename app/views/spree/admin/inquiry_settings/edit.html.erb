@@ -1,0 +1,30 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<h1><%= t(:inquiry_settings) %></h1>
+
+<%= form_tag(admin_inquiry_settings_path, :method => :put) do %>
+  <p>
+    <a href="http://code.google.com/apis/recaptcha/">reCAPTCHA</a> <%= t(:recaptcha_description) %>
+    <br/><br/>
+    <label><%= t(:use_captcha) %>:</label>
+    <%= check_box_tag('captcha[use_captcha]', "1", Spree::ContactUsConfiguration[:use_captcha]) %>
+  </p>
+  <p>
+    <label><%= t(:recaptcha_public_key) %>:</label>
+    <%= text_field_tag('captcha[recaptcha_public_key]', Spree::ContactUsConfiguration[:recaptcha_public_key]) %>
+    <a href="http://www.google.com/recaptcha/whyrecaptcha"><%= t(:get_api_key) %></a>
+  </p>
+  <p>
+    <label><%= t(:recaptcha_private_key) %>:</label>
+    <%= text_field_tag('captcha[recaptcha_private_key]', Spree::ContactUsConfiguration[:recaptcha_private_key]) %>
+  </p>
+  <p>
+    <label><%= t(:recaptcha_theme) %>:</label>
+    <%= select_tag('captcha[recaptcha_theme]', options_for_select([['red', 'red'],['white','white'],['blackglass','blackglass'],['clean','clean']], [Spree::ContactUsConfiguration[:recaptcha_theme]])) %>
+    <a href="http://code.google.com/apis/recaptcha/docs/customization.html"><%= t(:view_themes) %></a>
+  </p>
+  <p class="form-buttons">
+    <%= button t('update') %>
+    <%= t("or") %> <%= link_to t("cancel"), admin_inquiry_settings_url %>
+  </p>
+<% end %>

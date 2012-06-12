@@ -1,5 +1,8 @@
 # encoding: UTF-8
 
+LANG="en_US.UTF-8"
+LC_ALL="en_US.UTF-8"
+
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_contact_us'
@@ -20,4 +23,3 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails'
   s.add_dependency 'recaptcha'
 end
-

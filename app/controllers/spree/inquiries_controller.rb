@@ -8,37 +8,36 @@ module Spree
 
     def create
       @inquiry = Inquiry.new(params[:inquiry])
+
       if validate_captcha && @inquiry.save
-        redirect_to :back, :notice => t(:on_send_message)
+        redirect_to contact_path, :notice => t(:on_send_message)
       else
-        render :action => 'new'
+        render :new
       end
     end
 
     def index
-      redirect_to(new_inquiry_url) unless params[:inquiry]
+      redirect_to(contact_path) unless params[:inquiry]
     end
 
     protected
 
     def validate_captcha
-      if use_captcha
-        verify_recaptcha(
+      if Spree::ContactUsConfiguration[:use_captcha]
+        response = verify_recaptcha(
           :model => @inquiry,
           :message => t(:recaptcha_error_mes),
-          :private_key => recaptcha_key
+          :private_key => Spree::ContactUsConfiguration[:recaptcha_private_key]
         )
+
+        # the recaptcha plugin inserts this flash message every time regardless of success/failure
+        # spree_contact_us provides error + success notifications, it is safe to delete this
+        flash.delete(:recaptcha_error)
+
+        response
       else
         true
       end
-    end
-
-    def recaptcha_key
-      Spree::ContactUsConfiguration[:recaptcha_private_key]
-    end
-
-    def use_captcha
-      Spree::ContactUsConfiguration[:use_captcha] == true
     end
   end
 end

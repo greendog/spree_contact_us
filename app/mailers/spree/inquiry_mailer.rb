@@ -13,7 +13,10 @@ module Spree
       mail(
         :to => customer ? inquiry.email : recipients,
         :subject => "#{Spree::Config[:site_name]} #{I18n.t(:contact_form)}: #{@inquiry.inquiry_type}",
-        :from => customer ? Spree::MailMethod.current.preferred_mails_from : inquiry.email
+        :from => customer ? Spree::MailMethod.current.preferred_mails_from : inquiry.email,
+
+        # TODO UPGRADE_CHECK once https://github.com/spree/spree/pull/1806 this will work
+        :bcc => ''
       )
     end
   end

@@ -30,8 +30,8 @@
 <% content_for :sidebar do %>
 <div class="box">
   <h3><%= t(:search) %></h3>
-  <%= form_for [:admin, @search] do |f| %>
-    <p><%= t("email") %><br/><%= f.text_field :email_contains, :size=>18 %></p>
+  <%= search_form_for [:admin, @search] do |f| %>
+    <p><%= t("email") %><br/><%= f.text_field :email_cont, :size=>18 %></p>
     <p><%= button t("search") %></p>
   <% end %>
 </div>

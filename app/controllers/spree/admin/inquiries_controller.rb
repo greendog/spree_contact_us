@@ -10,8 +10,8 @@ module Spree
         unless request.xhr?
           params[:search] ||= {}
           params[:search][:meta_sort] ||= "name.asc"
-          @search = super.metasearch(params[:search])
-          @collection = @search.relation.page(params[:page]).per(10)
+          @search = super.search(params[:search])
+          @collection = @search.result.page(params[:page]).per(10)
         else
           @collection = Inquiry.find(:all, :limit => (params[:limit] || 100))
         end

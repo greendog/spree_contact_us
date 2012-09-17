@@ -1,6 +1,5 @@
 module Spree
   class InquiryMailer < ActionMailer::Base
-    default :from => Spree::MailMethod.current.preferred_mails_from
 
     def notification(inquiry)
       recipients = Spree::MailMethod.current.preferred_mail_bcc.split()
@@ -8,9 +7,11 @@ module Spree
       @inquiry = inquiry
       mail(
         :to => inquiry.email,
+        :from => Spree::MailMethod.current.preferred_mails_from,
         :subject => "#{Spree::Config[:site_name]}: #{I18n.t(:contact_form)}",
         :bcc => recipients
       )
     end
+
   end
 end

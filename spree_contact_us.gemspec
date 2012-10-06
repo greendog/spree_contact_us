@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 1.1.0'
+  s.add_dependency 'spree_core', '~> 1.2'
   s.add_dependency 'recaptcha'
 
   s.add_development_dependency 'rspec-rails'

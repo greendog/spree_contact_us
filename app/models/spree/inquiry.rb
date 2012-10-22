@@ -9,6 +9,7 @@ module Spree
 
     def deliver_notification_email
       InquiryMailer.notification(self).deliver
+      InquiryMailer.notification(self, true).deliver
     end
   end
 end

@@ -23,12 +23,8 @@ module Spree
     protected
 
     def validate_captcha
-      if Spree::ContactUsConfiguration[:use_captcha]
-        response = verify_recaptcha(
-          :model => @inquiry,
-          :message => t(:recaptcha_error_mes),
-          :private_key => Spree::ContactUsConfiguration[:recaptcha_private_key]
-        )
+      if use_recaptcha?
+        response = verify_recaptcha(recaptcha_params)
 
         # the recaptcha plugin inserts this flash message every time regardless of success/failure
         # spree_contact_us provides error + success notifications, it is safe to delete this
@@ -39,5 +35,18 @@ module Spree
         true
       end
     end
+
+    def use_recaptcha?
+      Spree::ContactUsConfiguration[:use_captcha] && Spree::ContactUsConfiguration[:recaptcha_private_key].present?
+    end
+
+    def recaptcha_params
+        {
+          :model => @inquiry,
+          :message => t(:recaptcha_error_mes),
+          :private_key => Spree::ContactUsConfiguration[:recaptcha_private_key]
+        }
+    end
+
   end
 end

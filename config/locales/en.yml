@@ -38,6 +38,7 @@ en:
   order: "Order"
   recaptcha: "reCAPTCHA"
   use_captcha: "Enable reCAPTCHA"
+  use_honeypot: "Enable 'Honeypot' CAPTCHA"
   recaptcha_public_key: "reCAPTCHA Public Key"
   recaptcha_private_key: "reCAPTCHA Private Key"
   recaptcha_theme: "reCAPTCHA Theme"

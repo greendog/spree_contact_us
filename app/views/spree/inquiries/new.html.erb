@@ -25,12 +25,17 @@
       <%= f.label :message, t(:inquiry_message) %> <span class="required">*</span><br/>
       <%= f.text_area :message, {:cols => 60, :rows => 4, :class => 'fullwidth'} %>
     <% end %>
-    <% if Spree::ContactUsConfiguration[:use_captcha] %>
+    <% if Spree::ContactUsConfiguration[:use_captcha] && Spree::ContactUsConfiguration[:recaptcha_public_key] %>
       <%= recaptcha_tags(
             :public_key => Spree::ContactUsConfiguration[:recaptcha_public_key],
             :display    => {:theme => Spree::ContactUsConfiguration[:recaptcha_theme]}
           )
       %>
+    <% end %>
+    <% if Spree::ContactUsConfiguration[:use_honeypot] %>
+        <div class="inquiry_honey">
+            <%= t('honeypot_captcha.please_leave_blank') %><input name="honey" value="" />
+        </div>
     <% end %>
     <br/>
     <%= f.submit t(:send_inquiry) %>

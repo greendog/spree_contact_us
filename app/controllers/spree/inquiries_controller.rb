@@ -23,6 +23,10 @@ module Spree
     protected
 
     def validate_captcha
+      !has_invalid_captcha?
+    end
+
+    def has_invalid_captcha?
       if use_recaptcha?
         response = verify_recaptcha(recaptcha_params)
 
@@ -30,9 +34,11 @@ module Spree
         # spree_contact_us provides error + success notifications, it is safe to delete this
         flash.delete(:recaptcha_error)
 
-        response
-      else
-        true
+        !response
+      elsif Spree::ContactUsConfiguration[:use_honeypot]
+        unless params[:honey].blank?
+          flash[:captcha_error] = t(:recaptcha_error_mes)
+        end
       end
     end
 

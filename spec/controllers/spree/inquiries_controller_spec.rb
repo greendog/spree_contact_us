@@ -38,5 +38,31 @@ describe Spree::InquiriesController do
 
   end
 
+
+  context "using a honeypot CAPTCHA," do
+
+    before do
+      Spree::Inquiry.any_instance.stub(:save => true)
+      Spree::ContactUsConfiguration.stub(:[]).with(:use_honeypot).and_return(true)
+      Spree::InquiriesController.any_instance.stub(:use_recaptcha? => false)
+    end
+
+    context "when valid," do
+      it "should be successful" do
+        spree_post :create
+        response.should be_redirect
+      end
+    end
+
+    context "when invalid," do
+      it "should set the flash" do
+        spree_post :create, :honey => 'LUV HONEY!'
+        response.should render_template(:new)
+        flash[:captcha_error].should_not be_blank
+      end
+    end
+
+  end
+
 end
 

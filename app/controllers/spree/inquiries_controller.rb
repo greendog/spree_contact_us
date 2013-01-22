@@ -1,6 +1,5 @@
 module Spree
   class InquiriesController < Spree::BaseController
-    helper 'spree/admin/base'
 
     def new
       @inquiry = Inquiry.new

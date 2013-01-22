@@ -1,15 +1,35 @@
-# This file is copied to ~/spec when you run 'ruby script/generate rspec'
-# from the project root directory.
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../../config/environment", __FILE__)
+ENV["RAILS_ENV"] = 'test'
+path_to_test_store = '../dummy';
+
+require File.expand_path("#{path_to_test_store}/config/environment.rb",  __FILE__)
+
 require 'rspec/rails'
-require 'fabrication'
+require 'rspec/autorun'
+require 'spree/core/testing_support/controller_requests'
+require 'spree/core/url_helpers'
+#require 'database_cleaner'
+#require 'capybara/poltergeist'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
+# Run any available migration
+ActiveRecord::Migrator.migrate File.expand_path("#{path_to_test_store}/db/migrate/", __FILE__)
+
+# Requires factories defined in spree_core
+require 'spree/core/testing_support/factories'
+
 RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
+
+  # == URL Helpers
+  #
+  # Allows access to Spree's routes in specs:
+  #
+  # visit spree.admin_path
+  # current_path.should eql(spree.products_path)
+  config.include Spree::Core::UrlHelpers
   # == Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -21,11 +41,10 @@ RSpec.configure do |config|
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  #config.include Devise::TestHelpers, :type => :controller
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, comment the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-end
 
-@configuration ||= AppConfiguration.find_or_create_by_name("Default configuration")
+  config.include Spree::Core::TestingSupport::ControllerRequests, :type => :controller
+end

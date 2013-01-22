@@ -20,6 +20,7 @@ en:
   general_info: "General Information"
   order_info: "Order Information"
   bug_report: "Bug Report"
+  admin_no_entries_found: "No entries found."
   admin_header_message: "This is a list of all the Contact Us forms submitted on the site. You also receive copies of these inquiries by email."
   inquiry: "Inquiry"
   listing_inquiries: "Listing Inquiries"

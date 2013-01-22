@@ -1,31 +1,36 @@
 <h1><%= t("listing_inquiries") %></h1>
-<h4><%= t(:admin_header_message) %></h4>
+<% if @collection.empty? %>
+  <h4><%= t(:admin_no_entries_found) %></h4>
+<% else %>
 
-<table class="index">
-  <thead>
-    <tr>
-      <th><%= sort_link @search, :inquiry_type, t("inquiry_type") %></th>
-      <th><%= sort_link @search, :email, t("from") %></th>
-      <th><%= sort_link @search, :created_at, t("spree.date") %></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @inquiries.each do |inquiry| %>
-    <tr id="<%= dom_id inquiry %>">
-      <td><%= link_to (inquiry.inquiry_type.blank? ? t("inquiry") : inquiry.inquiry_type), object_url(inquiry) %></td>
-      <td><%= mail_to "#{inquiry.name} <#{inquiry.email}>", inquiry.email %></td>
-      <td><%= inquiry.created_at.to_date %></td>
-      <td>
-        <%= link_to t(:display), object_url(inquiry) %> &nbsp;
-        <%= link_to_delete inquiry %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+  <h4><%= t(:admin_header_message) %></h4>
 
-<%= paginate @inquiries %>
+  <table class="index">
+    <thead>
+      <tr>
+        <th><%= sort_link @search, :inquiry_type, t("inquiry_type") %></th>
+        <th><%= sort_link @search, :email, t("from") %></th>
+        <th><%= sort_link @search, :created_at, t("spree.date") %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @collection.each do |inquiry| %>
+      <tr id="<%= dom_id inquiry %>">
+        <td><%= link_to (inquiry.inquiry_type.blank? ? t("inquiry") : inquiry.inquiry_type), object_url(inquiry) %></td>
+        <td><%= mail_to "#{inquiry.name} <#{inquiry.email}>", inquiry.email %></td>
+        <td><%= inquiry.created_at.to_date %></td>
+        <td>
+          <%= link_to t(:display), object_url(inquiry) %> &nbsp;
+          <%= link_to_delete inquiry %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @collection %>
+<% end %>
 
 <% content_for :sidebar do %>
 <div class="box">
@@ -36,3 +41,4 @@
   <% end %>
 </div>
 <% end %>
+

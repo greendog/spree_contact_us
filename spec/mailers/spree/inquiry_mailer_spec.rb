@@ -7,7 +7,9 @@ describe Spree::InquiryMailer do
     let(:inquiry) { mock_model(Spree::Inquiry, :name => 'George Lucas',
                                                :email => 'lucas@example.com',
                                                :inquiry_type => 'Confessions',
-                                               :message => 'I admit it, Empire Strikes Back was the best.') }
+                                               :message => 'I admit it, Empire Strikes Back was the best.',
+                                               :http_remote_addr => '192.99.99.99',
+                                               :http_user_agent => 'Mozilla MeganFox 4000') }
 
     before do
       Spree::InquiryMailer.any_instance.stub(:mail_from => 'test@example.com',
@@ -28,6 +30,14 @@ describe Spree::InquiryMailer do
 
       it 'has the correct reply_to address' do
         mail.reply_to.should == ['lucas@example.com']
+      end
+
+      it 'renders the ip addr in the body' do
+        mail.body.encoded.should match inquiry.http_remote_addr
+      end
+
+      it 'renders the user_agent in the body' do
+        mail.body.encoded.should match inquiry.http_user_agent
       end
 
     end

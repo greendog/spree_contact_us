@@ -7,7 +7,9 @@ module Spree
     end
 
     def create
-      @inquiry = Inquiry.new(params[:inquiry])
+      @inquiry = Inquiry.new params[:inquiry]
+      @inquiry.http_user_agent = request.env['HTTP_USER_AGENT']
+      @inquiry.http_remote_addr = request.env['HTTP_X_FORWARDED_FOR'] || request.remote_ip
 
       if validate_captcha && @inquiry.save
         redirect_to contact_path, :notice => t(:on_send_message)

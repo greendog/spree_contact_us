@@ -1,3 +1,6 @@
 <%= t(:inquiry_has_been_received, :site => Spree::Config[:site_name]) %>
 
 <%= render :partial => 'details' %>
+
+<%= t(:ip_address) %>: <%= @inquiry.http_remote_addr %>
+<%= t(:user_agent) %>: <%= @inquiry.http_user_agent %>

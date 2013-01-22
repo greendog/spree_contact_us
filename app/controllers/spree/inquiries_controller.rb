@@ -39,7 +39,7 @@ module Spree
         !response
       elsif Spree::ContactUsConfiguration[:use_honeypot]
         unless params[:honey].blank?
-          flash[:captcha_error] = t(:recaptcha_error_mes)
+          flash[:captcha_error] = t('honeypot.error_message')
         end
       end
     end

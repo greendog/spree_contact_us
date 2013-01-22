@@ -43,8 +43,13 @@ en:
   user_agent: 'User Agent'
   order: "Order"
   recaptcha: "reCAPTCHA"
+  honeypot:
+    name: "Honeypot CAPTCHA"
+    please_leave_blank: "Please Leave this field blank: "
+    description: 'A "Honeypot" field is a text form field that is invisible to users with CSS enabled. If it contains anything, we assume a bot has filled out the form.'
+    enable: "Enable 'Honeypot' CAPTCHA"
+    error_message: "An error occurred. Please try again and follow the instructions carefully."
   use_captcha: "Enable reCAPTCHA"
-  use_honeypot: "Enable 'Honeypot' CAPTCHA"
   recaptcha_public_key: "reCAPTCHA Public Key"
   recaptcha_private_key: "reCAPTCHA Private Key"
   recaptcha_theme: "reCAPTCHA Theme"

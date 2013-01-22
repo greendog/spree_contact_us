@@ -2,6 +2,10 @@
 <h1><%= t(:inquiry_settings) %></h1>
 <table>
   <tr>
+    <th scope="row"><%= t(:use_honeypot) %>:</th>
+    <td><%= Spree::ContactUsConfiguration[:use_honeypot] ? t('yes') : t('no') %></td>
+  </tr>
+  <tr>
     <th scope="row"><%= t(:use_captcha) %>:</th>
     <td><%= Spree::ContactUsConfiguration[:use_captcha] ? t('yes') : t('no') %></td>
   </tr>

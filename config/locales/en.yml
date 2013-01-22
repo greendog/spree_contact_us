@@ -39,6 +39,8 @@ en:
   message: 'Message'
   thank_you: 'Thank You'
   recaptcha_error_mes: "There was an error with the reCAPTCHA, please try again."
+  ip_address: 'IP address'
+  user_agent: 'User Agent'
   order: "Order"
   recaptcha: "reCAPTCHA"
   use_captcha: "Enable reCAPTCHA"

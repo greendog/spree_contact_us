@@ -35,4 +35,12 @@ if it has anything in it, a stupid bot has probably filled it out. It does
 assume that everyone is using a CSS-capable, visual user agent that will hide
 the field using display:none
 
-Pull requests welcome
+
+TESTING
+=======
+$ bundle exec rake common:test_app
+$ bundle exec rake spec
+
+~Enjoy~
+
+Pull requests welcome. Please make sure changes are tested and tests pass.

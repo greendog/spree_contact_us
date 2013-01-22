@@ -3,7 +3,7 @@ SpreeContactUs
 
 Requirements:
 
-1) recaptcha
+1) recaptcha (optional)
 2) rails >= 3.1.0
 
 Installation
@@ -11,14 +11,28 @@ Installation
 Add-to Gemfile following lines:
 
     gem 'spree_contact_us', :git => 'git://github.com/sbeam/spree_contact_us.git'
-    gem "recaptcha", :require => "recaptcha/rails"
+    gem "recaptcha", :require => "recaptcha/rails" # if you are using reCAPTCHA
 
 Run: bundle install
 Run: bundle exec rails g spree_contact_us:install
 Run: bundle exec rake db:migrate
 
- Edit lib/spree/spree_contact_us_configuration.rb
+* Set mail method in admin area (/admin/mail_methods). Otherwise will not work!
 
- Set mail method in admin area (/admin/mail_methods). Otherwise will not work!
+Upgrading
+=======
+Run: bundle exec rails g spree_contact_us:install
+Run: bundle exec rake db:migrate
 
- Pull requests welcome
+Contact forms get spammed a lot
+=======
+Includes support for reCAPTCHA http://www.google.com/recaptcha which can be configured
+in the admin under Configuration -> Inquiries.
+
+A "Honeypot" CAPTCHA is also available. This is a fairly effective method and requires zero
+effort on the part of the user. An empty form field is included in the form -
+if it has anything in it, a stupid bot has probably filled it out. It does
+assume that everyone is using a CSS-capable, visual user agent that will hide
+the field using display:none
+
+Pull requests welcome

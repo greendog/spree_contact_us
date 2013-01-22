@@ -9,6 +9,10 @@ describe Spree::InquiriesController do
 
   it "can POST to #create" do
     spree_post :create
+  end
+
+  it "on create, inquiry gets env vars" do
+    spree_post :create
     inquiry = assigns(:inquiry)
     inquiry.should_not be_nil
     inquiry.http_user_agent.should == controller.request.env['HTTP_USER_AGENT']

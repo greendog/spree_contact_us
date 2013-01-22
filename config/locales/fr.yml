@@ -23,5 +23,5 @@ fr:
   type_real_mail: "Entrer votre adresse email"
   send: "Envoyer le message"
   from: "De"
-  header: "Si ce message ne vous ai pas destiné merci de l'ignorer et de l'effacer."
+  if_this_is_not_for_you: "Si ce message ne vous ai pas destiné merci de l'ignorer et de l'effacer."
   recaptcha_error_mes: "Il y a une erreur dans le captcha, merci de réessayer."

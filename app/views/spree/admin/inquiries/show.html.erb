@@ -20,6 +20,13 @@
 <p>
   <strong><%= t(:message) %>:</strong> <%= h @inquiry.message %>
 </p>
+
+<p>
+  <strong><%= t(:ip_address) %>:</strong> <%= h @inquiry.http_remote_addr %>
+</p>
+<p>
+  <strong><%= t(:user_agent) %>:</strong> <%= h @inquiry.http_user_agent %>
+</p>
 <p>
   <%= link_to t(:back), collection_url %> |
   <%= link_to t(:delete), object_url, :confirm => t(:are_you_sure_delete), :method => :delete %>

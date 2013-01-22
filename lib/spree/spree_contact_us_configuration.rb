@@ -1,6 +1,7 @@
 module Spree
   class SpreeContactUsConfiguration < Preferences::Configuration
-    preference :use_captcha, :boolean, :default => true
+    preference :use_captcha, :boolean, :default => false
+    preference :use_honeypot, :boolean, :default => false
     preference :recaptcha_public_key, :string
     preference :recaptcha_private_key, :string
     preference :recaptcha_theme, :string, :default => 'red'

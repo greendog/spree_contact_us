@@ -23,5 +23,5 @@ pt-BR:
   type_real_mail: "Preencha seu email verdadeiro"
   send: "Enviar mensagem"
   from: "De"
-  header: "Se essa mensagem não é para você, por favor, ignore e remova-a. Não responda essa mensagem. please ignore and delete it."
+  if_this_is_not_for_you: "Se essa mensagem não é para você, por favor, ignore e remova-a. Não responda essa mensagem. please ignore and delete it."
   recaptcha_error_mes: "Houve um erro com o ReCAPTCHA, por favor, tente novamente."

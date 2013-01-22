@@ -19,8 +19,6 @@ ActiveRecord::Migrator.migrate File.expand_path("#{path_to_test_store}/db/migrat
 
 # Requires factories defined in spree_core
 require 'spree/core/testing_support/factories'
-require 'spree/core/testing_support/controller_requests'
-require 'spree/core/url_helpers'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods

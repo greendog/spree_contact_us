@@ -1,5 +1,6 @@
 module Spree
   class InquiriesController < Spree::BaseController
+    ssl_required
 
     def new
       @inquiry = Inquiry.new

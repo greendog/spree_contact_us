@@ -26,15 +26,24 @@ Run: bundle exec rake db:migrate
 
 Contact forms get spammed a lot
 =======
-Includes support for reCAPTCHA http://www.google.com/recaptcha which can be configured
-in the admin under Configuration -> Inquiries.
+Includes support for reCAPTCHA http://www.google.com/recaptcha which can be
+configured in the admin under Configuration -> Inquiries.
 
-A "Honeypot" CAPTCHA is also available. This is a fairly effective method and requires zero
-effort on the part of the user. An empty form field is included in the form -
-if it has anything in it, a stupid bot has probably filled it out. It does
-assume that everyone is using a CSS-capable, visual user agent that will hide
-the field using display:none
+A "Honeypot" CAPTCHA is also available. This is a fairly effective method and
+requires zero effort on the part of the user. An empty form field is included
+in the form - if it has anything in it, a stupid bot has probably filled it
+out. It does assume that everyone is using a CSS-capable, visual user agent
+that will hide the field using display:none
 
+Extra Browser/Client info
+=========================
+For helping with reports of site issues, the controller also gathers the UA
+string and remote IP.  Viewport size is also recorded when the form is
+submitted via JS - if you want this, make sure
+
+//= require store/spree_contact_us
+
+is in your JS manifest file (usually /app/assets/javascripts/store/all.js)
 
 TESTING
 =======

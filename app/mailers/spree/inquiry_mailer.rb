@@ -26,11 +26,11 @@ module Spree
     private
 
     def mail_from
-      Spree::MailMethod.current.preferred_mails_from
+      Spree::MailMethod.current.try(:preferred_mails_from)
     end
 
     def site_owner_email
-      Spree::MailMethod.current.preferred_mail_bcc
+      Spree::MailMethod.current.try(:preferred_mail_bcc)
     end
 
   end

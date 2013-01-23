@@ -1,3 +1,4 @@
+<h3>Inquiry submitted at <%= I18n.l @inquiry.created_at %></h3>
 <p>
   <strong><%= t(:name) %>:</strong> <%= @inquiry.name %>
 </p>
@@ -26,6 +27,9 @@
 </p>
 <p>
   <strong><%= t(:user_agent) %>:</strong> <%= h @inquiry.http_user_agent %>
+</p>
+<p>
+  <strong><%= t(:viewport_size) %>:</strong> <%= h @inquiry.client_viewport_size %>
 </p>
 <p>
   <%= link_to t(:back), collection_url %> |

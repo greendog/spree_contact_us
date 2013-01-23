@@ -42,6 +42,7 @@ en:
   recaptcha_error_mes: "There was an error with the reCAPTCHA, please try again."
   ip_address: 'IP address'
   user_agent: 'User Agent'
+  viewport_size: 'Client Viewport Size (W x H)'
   order: "Order"
   recaptcha: "reCAPTCHA"
   honeypot:

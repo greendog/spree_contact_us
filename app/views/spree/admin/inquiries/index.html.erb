@@ -19,7 +19,7 @@
       <tr id="<%= dom_id inquiry %>">
         <td><%= link_to (inquiry.inquiry_type.blank? ? t("inquiry") : inquiry.inquiry_type), object_url(inquiry) %></td>
         <td><%= mail_to "#{inquiry.name} <#{inquiry.email}>", inquiry.email %></td>
-        <td><%= inquiry.created_at.to_date %></td>
+        <td><%= I18n.l inquiry.created_at %></td>
         <td>
           <%= link_to t(:display), object_url(inquiry) %> &nbsp;
           <%= link_to_delete inquiry %>

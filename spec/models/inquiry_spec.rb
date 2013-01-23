@@ -4,6 +4,7 @@ describe Spree::Inquiry do
 
   it { should have_db_column(:http_remote_addr) }
   it { should have_db_column(:http_user_agent) }
+  it { should have_db_column(:client_viewport_size) }
 
   it { should validate_presence_of(:name) }
 

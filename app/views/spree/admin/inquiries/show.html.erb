@@ -29,6 +29,9 @@
   <strong><%= t(:user_agent) %>:</strong> <%= h @inquiry.http_user_agent %>
 </p>
 <p>
+  <strong><%= t(:viewport_size) %>:</strong> <%= h @inquiry.client_viewport_size %>
+</p>
+<p>
   <%= link_to t(:back), collection_url %> |
   <%= link_to t(:delete), object_url, :confirm => t(:are_you_sure_delete), :method => :delete %>
 </p>

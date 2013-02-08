@@ -1,5 +1,5 @@
 module Spree
-  class InquiriesController < Spree::BaseController
+  class InquiriesController < Spree::StoreController
     ssl_required
 
     def new

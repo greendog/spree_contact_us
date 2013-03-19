@@ -10,7 +10,7 @@ Installation
 =======
 Add-to Gemfile following lines:
 
-    gem 'spree_contact_us', :git => 'git://github.com/пкуутвщп/spree_contact_us.git'
+    gem 'spree_contact_us', :git => 'git://github.com/greendog/spree_contact_us.git'
     gem "recaptcha", :require => "recaptcha/rails" # if you are using reCAPTCHA
 
 Run: bundle install

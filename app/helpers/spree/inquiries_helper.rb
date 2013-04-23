@@ -6,6 +6,8 @@ module Spree::InquiriesHelper
       types = YAML.load Spree::ContactUsConfiguration[:inquiry_types]
     end
 
-    types.collect { |i| t(i) }
+    # Translate types, use string for missing translations
+    types.collect { |i| t(i, :default => i.to_s) }
+
   end
 end

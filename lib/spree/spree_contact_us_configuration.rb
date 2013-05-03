@@ -5,6 +5,7 @@ module Spree
     preference :recaptcha_public_key, :string
     preference :recaptcha_private_key, :string
     preference :recaptcha_theme, :string, :default => 'red'
-    preference :inquiry_types, :array, :default => [:support, :sales, :website_issue, :suggestion, :other]
+    preference :inquiry_types, :array, :default => [:site_support, :sales, :website_issue,
+                                                    :suggestion, :other]
   end
 end

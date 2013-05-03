@@ -1,0 +1,62 @@
+es:
+  activerecord:
+    attributes:
+      inquiry:
+        name: "Nombre"
+        email: "Email"
+        inquiry_type: "Tema"
+        message: "Mensaje"
+  inquiries: "Consultas"
+  contact_us: "Contáctenos"
+  contact_form: "Formulario de Contacto"
+  contact_name: "Su Nombre"
+  contact_email: "Su Email"
+  contact_phone_number: "Su Número de Teléfono"
+  inquiry_type: "Tipo de Consulta"
+  inquiry_order_no: "Nro. de Orden"
+  inquiry_message: "Mensaje"
+  send_inquiry: "Enviar"
+  send_news_and_info: "Subscribirse a las noticias"
+  general_info: "Información General"
+  order_info: "Información de la Orden"
+  bug_report: "Reporte de Error"
+  admin_no_entries_found: "No se encontraron registros."
+  admin_header_message: "Esta es una lista de todos los formularios de contacto enviados en el sitio. También recibirás copias de estas consultas por email."
+  inquiry: "Consulta"
+  listing_inquiries: "Listado de Consultas"
+  on_send_message: "Gracias, su consulta será contestada a la brevedad."
+  inquiry_sent_succesfully: "Email enviado exitosamente."
+  site_support: "Soporte"
+  sales: "Ventas"
+  website_issue: "Problema del Sitio Web"
+  suggestion: "Sugerencia"
+  other: "Otros"
+  type_real_mail: "Ingrese su Email"
+  send: "Enviar mensaje"
+  from: "Remitente"
+  your_message_has_been_sent: 'Su formulario ha sido recibido. Aquí estan los detalles de registros:'
+  if_this_is_not_for_you: "Si Ud. no es el destinatario de este mensaje por favor eliminar."
+  inquiry_has_been_received: 'Su mensaje del formulario de contact en %{site} ha sido recibido. Detalles:'
+  message: 'Mensaje'
+  thank_you: 'Muchas Gracias'
+  recaptcha_error_mes: "Hubo un error con valor ingresado en el reCAPTCHA, por favor intentelo nuevamente."
+  ip_address: 'Dirección IP'
+  user_agent: 'User Agent'
+  viewport_size: 'Client Viewport Size (W x H)'
+  order: "Orden"
+  recaptcha: "reCAPTCHA"
+  honeypot:
+    name: "Honeypot CAPTCHA"
+    please_leave_blank: "Por favor dejar este campo en blanco: "
+    description: 'Un campo "Honeypot" es invisible a los usuarios con CSS habilitado. Si no esta vacío asumimos que un bot ha completado el formulario.'
+    enable: "Habilitar 'Honeypot' CAPTCHA"
+    error_message: "Ha ocurrido un error. Por favor intentelo nuevamente."
+  use_captcha: "Habilitar reCAPTCHA"
+  recaptcha_public_key: "reCAPTCHA Llave Pública (Public Key)"
+  recaptcha_private_key: "reCAPTCHA Llave Privada (Private Key)"
+  recaptcha_theme: "reCAPTCHA Tema"
+  inquiry_types: "Tipos de Consulta"
+  inquiry_settings: "Configuración de Consulta"
+  recaptcha_description: "es un widget gratuito para protección contra spam en tus formularios de contacto."
+  view_themes: "Ver Temas"
+  get_api_key: "Obtener API Key"

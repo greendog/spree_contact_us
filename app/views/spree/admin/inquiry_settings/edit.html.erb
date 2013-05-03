@@ -35,6 +35,13 @@
       <a href="http://code.google.com/apis/recaptcha/docs/customization.html"><%= t(:view_themes) %></a>
     </p>
   </fieldset>
+  <fieldset>
+    <legend><%= t(:inquiry_types) %></legend>
+    <p>
+      <label><%= t(:inquiry_types) %></label>
+      <%= text_field_tag('inquiry_types', Spree::ContactUsConfiguration[:inquiry_types].join(', ')) %>
+    </p>
+  </fieldset>
   <p class="form-buttons">
     <%= button t('update') %>
     <%= t("or") %> <%= link_to t("cancel"), admin_inquiry_settings_url %>

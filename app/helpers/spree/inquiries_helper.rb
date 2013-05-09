@@ -7,7 +7,7 @@ module Spree::InquiriesHelper
     end
 
     # Translate types, use string for missing translations
-    types.collect { |i| t(i, :default => i.to_s) }
+    types.collect { |i| Spree.t(i, :default => i.to_s) }
 
   end
 end

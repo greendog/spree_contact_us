@@ -8,7 +8,7 @@ module Spree
         :to => site_owner_email,
         :reply_to => inquiry.email,
         :from => mail_from,
-        :subject => "#{Spree::Config[:site_name]} #{I18n.t(:contact_form)}: #{inquiry.inquiry_type}"
+        :subject => "#{Spree::Config[:site_name]} #{Spree.t(:contact_form)}: #{inquiry.inquiry_type}"
       )
     end
 
@@ -19,7 +19,7 @@ module Spree
         :to => inquiry.email,
         :reply_to => site_owner_email,
         :from => mail_from,
-        :subject => "#{Spree::Config[:site_name]} #{I18n.t(:contact_form)}: #{inquiry.inquiry_type}"
+        :subject => "#{Spree::Config[:site_name]} #{Spree.t(:contact_form)}: #{inquiry.inquiry_type}"
       )
     end
 

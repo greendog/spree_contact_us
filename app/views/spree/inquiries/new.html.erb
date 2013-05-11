@@ -15,7 +15,7 @@
       </p>
       <p>
           <%= f.label :inquiry_type, Spree.t(:inquiry_type) %><br/>
-          <%= f.select :inquiry_type, options_for_selecSpree.t(inquiry_types_translated) %>
+          <%= f.select :inquiry_type, options_for_select(inquiry_types_translated) %>
       </p>
       <p>
           <%= f.label :order_no, Spree.t(:inquiry_order_no) %><br/>

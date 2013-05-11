@@ -31,7 +31,7 @@
     </p>
     <p>
       <label><%= Spree.t(:recaptcha_theme) %>:</label>
-      <%= select_tag('captcha[recaptcha_theme]', options_for_selecSpree.t([['red', 'red'],['white','white'],['blackglass','blackglass'],['clean','clean']], [Spree::ContactUsConfiguration[:recaptcha_theme]])) %>
+      <%= select_tag('captcha[recaptcha_theme]', options_for_select([['red', 'red'],['white','white'],['blackglass','blackglass'],['clean','clean']], [Spree::ContactUsConfiguration[:recaptcha_theme]])) %>
       <a href="http://code.google.com/apis/recaptcha/docs/customization.html"><%= Spree.t(:view_themes) %></a>
     </p>
   </fieldset>

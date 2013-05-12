@@ -3,11 +3,11 @@
 <table>
   <tr>
     <th scope="row"><%= Spree.t(:use_honeypot) %>:</th>
-    <td><%= Spree::ContactUsConfiguration[:use_honeypot] ? Spree.t('yes') : Spree.t('no') %></td>
+    <td><%= Spree::ContactUsConfiguration[:use_honeypot] ? Spree.t('say_yes') : Spree.t('say_no') %></td>
   </tr>
   <tr>
     <th scope="row"><%= Spree.t(:use_captcha) %>:</th>
-    <td><%= Spree::ContactUsConfiguration[:use_captcha] ? Spree.t('yes') : Spree.t('no') %></td>
+    <td><%= Spree::ContactUsConfiguration[:use_captcha] ? Spree.t('say_yes') : Spree.t('say_no') %></td>
   </tr>
   <tr>
     <th scope="row"><%= Spree.t(:recaptcha_public_key) %>:</th>
